@@ -23,6 +23,7 @@ public class C3P0DataSourceFactory implements DataSourceFactory {
 		} catch (PropertyVetoException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	@Override
