@@ -39,5 +39,11 @@ public class TitleDaoImpl implements TitleDao {
 			return res;
 		}	
 	}
+	@Override
+	public Title selectTitleByCode(Title title) {
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			return sqlSession.selectOne(namespace+".selectTitleByCode", title);
+		}
+	}
 
 }

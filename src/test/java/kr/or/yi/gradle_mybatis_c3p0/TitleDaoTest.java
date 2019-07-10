@@ -67,6 +67,15 @@ public class TitleDaoTest extends AbstractTest {
 		Assert.assertEquals(1, res); // res 가1이면  성공
 	}
 	
+	@Test
+	public void test05SelectTitleByCode() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
+		Title selectTitle = new Title(1);
+		Title searchTitle = titleDao.selectTitleByCode(selectTitle);
+		log.debug("searchTitle = " + searchTitle);
+		Assert.assertNotNull(searchTitle);; // res 가1이면  성공
+	}
+	
 	
 
 
