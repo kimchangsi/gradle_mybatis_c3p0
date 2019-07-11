@@ -8,7 +8,7 @@ import kr.or.yi.gradle_mybatis_c3p0.dto.Title;
 import kr.or.yi.gradle_mybatis_c3p0.jdbc.MybatisSqlSessionFactory;
 
 public class TitleDaoImpl implements TitleDao {
-	private static final String namespace = "kr.or.yi.gradle_mybatis_c3p0.dao.TitleDao";
+	private static final String namespace = "mapper.titleMapper"; //맵퍼의 namespace와 같아야함!!!!
 	@Override
 	public List<Title> selectTitleByAll() {
 		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){

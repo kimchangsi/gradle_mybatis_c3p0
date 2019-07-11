@@ -1,18 +1,20 @@
 package kr.or.yi.gradle_mybatis_c3p0.ui.list;
 
-
 import javax.swing.SwingConstants;
 
-import kr.or.yi.gradle_mybatis_c3p0.dto.Title;
+import kr.or.yi.gradle_mybatis_c3p0.dto.Department;
+
 
 @SuppressWarnings("serial")
-public class TitleList extends AbstractList<Title> {
+public class DepartmentList extends AbstractList<Department> {
 
-	public TitleList(String title) {
+	public DepartmentList(String title) {
 		super(title);
-
 	}
 
+	
+
+	
 	@Override
 	protected void tableAlignmentAndWidth() {
 		// 직책번호, 직책명은 가운데 정렬
@@ -20,16 +22,15 @@ public class TitleList extends AbstractList<Title> {
 		// 직책번호, 직책명의 폭을 (100, 200)으로 가능하면 설정
 		tableSetWidth(100, 200);
 	}
-
 	@Override
 	protected Object[] toArray(int idx) {
-		Title title = itemList.get(idx);
-		return title.toArray();
+		Department department = itemList.get(idx);
+		return department.toArray();
 	}
-
 	@Override
 	protected String[] getColumnNames() {
-		return new String[] { "직책번호", "직책명" };
+		return new String[] { "부서번호", "부서명", "위치" };
 	}
 
+	
 }
