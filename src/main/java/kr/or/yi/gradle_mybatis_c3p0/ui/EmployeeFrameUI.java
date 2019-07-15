@@ -5,65 +5,71 @@ import java.util.List;
 import javax.swing.JFrame;
 
 import kr.or.yi.gradle_mybatis_c3p0.dto.Employee;
+import kr.or.yi.gradle_mybatis_c3p0.service.EmployeeUIService;
 import kr.or.yi.gradle_mybatis_c3p0.ui.content.AbstractPanel;
+import kr.or.yi.gradle_mybatis_c3p0.ui.content.PanelEmployee;
 import kr.or.yi.gradle_mybatis_c3p0.ui.list.AbstractList;
+import kr.or.yi.gradle_mybatis_c3p0.ui.list.EmployeeList;
 
+@SuppressWarnings("serial")
 public class EmployeeFrameUI extends AbstractFrameUI<Employee> {
-
+	private EmployeeUIService service;
 
 	public EmployeeFrameUI(String title) {
 		super(title);
-		setBounds(100, 100, 450, 300);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 500, 700);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 	}
 
 	@Override
 	protected void initDao() {
-		// TODO Auto-generated method stub
-		
+		service = new EmployeeUIService();
 	}
 
 	@Override
 	protected AbstractList<Employee> createListPanel() {
-		// TODO Auto-generated method stub
-		return null;
+		/*
+		 * empList.setItemList(service.selectEmpAll()); empList.reloadData();
+		 */
+		return new EmployeeList();
 	}
 
 	@Override
 	protected AbstractPanel<Employee> createContentPanel() {
-		// TODO Auto-generated method stub
-		return null;
+		PanelEmployee empPanel = new PanelEmployee();
+		empPanel.setDeptList(service.selectDeptAll());
+		empPanel.setTitleList(service.selectTitleAll());
+		return empPanel;
 	}
 
 	@Override
 	protected void clearContent() {
-		// TODO Auto-generated method stub
-		
+		pContent.clearComponent(itemList.size() == 0 ? 1 : itemList.size() + 1);
 	}
 
 	@Override
 	protected List<Employee> getListAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return service.selectEmpAll();
 	}
 
 	@Override
 	protected int updateItem(Employee item) {
 		// TODO Auto-generated method stub
-		return 0;
+		return service.updateEmployeeItem(item);
 	}
 
 	@Override
 	protected int insertItem(Employee item) {
 		// TODO Auto-generated method stub
-		return 0;
+		return service.insertEmployeeItem(item);
 	}
 
 	@Override
 	protected int deleteItem(Employee item) {
 		// TODO Auto-generated method stub
-		return 0;
+		return service.deleteEmployeeItem(item);
 	}
 
 }

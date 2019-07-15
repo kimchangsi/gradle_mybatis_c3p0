@@ -15,5 +15,35 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			return sqlSession.selectList(namespace+".selectEmployeeByAll");
 		}
 	}
+	@Override
+	public int updateEmployee(Employee employee) {
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			int res =  sqlSession.update(namespace+".updateEmployee", employee);
+			sqlSession.commit();
+			return res;
+		}	
+	}
+	@Override
+	public int deleteEmployee(Employee employee) {
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			int res =  sqlSession.delete(namespace+".deleteEmployee", employee);
+			sqlSession.commit();
+			return res;
+		}	
+	}
+	@Override
+	public int insertEmployee(Employee employee) {
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			int res =  sqlSession.insert(namespace+".insertEmployee", employee);
+			sqlSession.commit();
+			return res;
+		}	
+	}
+	@Override
+	public Employee selectEmployeeByCode(Employee employee) {
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession()){
+			return sqlSession.selectOne(namespace+".selectEmployeeByCode", employee);
+		}
+	}
 
 }
