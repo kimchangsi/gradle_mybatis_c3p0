@@ -42,7 +42,7 @@ public class PanelTitle extends AbstractPanel<Title> {
 	}
 	@Override
 	public void setItem(Title Title) {
-		tfTitleNo.setText(String.format("T%03d", Title.getTitleNo()));
+		tfTitleNo.setText(String.format("T%03d", Title.getTitleCode()));
 		tfTitleName.setText(Title.getTitleName());
 		tfTitleNo.setEditable(false);
 	}

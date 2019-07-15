@@ -1,7 +1,7 @@
 package kr.or.yi.gradle_mybatis_c3p0.dto;
 
 public class Title {
-	private int titleNo;
+	private int titleCode;
 	private String titleName;
 
 	
@@ -9,21 +9,21 @@ public class Title {
 		
 	}
 
-	public Title(int titleNo) {
-		this.titleNo = titleNo;
+	public Title(int titleCode) {
+		this.titleCode = titleCode;
 	}
 
-	public Title(int titleNo, String titleName) {
-		this.titleNo = titleNo;
+	public Title(int titleCode, String titleName) {
+		this.titleCode = titleCode;
 		this.titleName = titleName;
 	}
 
-	public int getTitleNo() {
-		return titleNo;
+	public int getTitleCode() {
+		return titleCode;
 	}
 
-	public void setTitleNo(int titleNo) {
-		this.titleNo = titleNo;
+	public void setTitleCode(int titleCode) {
+		this.titleCode = titleCode;
 	}
 
 	public String getTitleName() {
@@ -38,7 +38,7 @@ public class Title {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + titleNo;
+		result = prime * result + titleCode;
 		return result;
 	}
 
@@ -51,17 +51,17 @@ public class Title {
 		if (getClass() != obj.getClass())
 			return false;
 		Title other = (Title) obj;
-		if (titleNo != other.titleNo)
+		if (titleCode != other.titleCode)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%s-%s", titleNo,titleName);
+		return String.format("%s-%s", titleCode,titleName);
 	}
 
 	public Object[] toArray() {
-		return new Object[]{String.format("T%03d", titleNo), titleName};
+		return new Object[]{String.format("T%03d", titleCode), titleName};
 	}
 }

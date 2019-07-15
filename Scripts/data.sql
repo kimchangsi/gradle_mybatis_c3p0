@@ -16,3 +16,17 @@ INSERT INTO employee(eno, ename,title, salary, gender,dno, joindate) VALUES
 select * from department;
 select * from employee;
 select * from title;
+ -- procedure 생성
+drop procedure if exists salary_total;
+
+delimiter $$
+ $$
+ create procedure salary_total(in deptno int)
+ begin
+	 select dept_name,ifnull(sum(salary),0) as total
+	 from employee e right join department d on e.dno = d.dept_code
+	 where dno = deptno;
+end$$
+delimiter ;
+
+call salary_total(2);

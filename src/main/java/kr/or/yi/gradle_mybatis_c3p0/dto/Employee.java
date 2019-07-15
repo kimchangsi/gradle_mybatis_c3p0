@@ -98,7 +98,7 @@ public class Employee {
 				String.format("%s(%s층)", dno.getDeptName(), dno.getDeptFloor()), 
 				gender ? "남자" : "여자",
 				String.format("%tF", joinDate),
-				String.format("%s(%d)", title.getTitleName(),title.getTitleNo()));
+				String.format("%s(%d)", title.getTitleName(),title.getTitleCode()));
 	}
 
 	public Object[] toArray() {
@@ -109,7 +109,7 @@ public class Employee {
 				String.format("%s(%s층)", dno.getDeptName(), dno.getDeptFloor()), 
 				gender ? "남자" : "여자",
 				String.format("%tF", joinDate),
-				String.format("%s(%d)", title.getTitleName(),title.getTitleNo()),
+				String.format("%s(%d)", title.getTitleName(),title.getTitleCode()),
 		};
 	}
 }
