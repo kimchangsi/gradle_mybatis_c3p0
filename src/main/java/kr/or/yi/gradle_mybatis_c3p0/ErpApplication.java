@@ -10,9 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import kr.or.yi.gradle_mybatis_c3p0.dto.Department;
+import kr.or.yi.gradle_mybatis_c3p0.dto.Employee;
 import kr.or.yi.gradle_mybatis_c3p0.dto.Title;
 import kr.or.yi.gradle_mybatis_c3p0.ui.AbstractFrameUI;
 import kr.or.yi.gradle_mybatis_c3p0.ui.DepartmentFrameUI;
+import kr.or.yi.gradle_mybatis_c3p0.ui.EmployeeFrameUI;
 import kr.or.yi.gradle_mybatis_c3p0.ui.TitleFrameUI;
 
 
@@ -21,6 +23,7 @@ public class ErpApplication extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JButton btnTitle;
 	private JButton btnDepartment;
+	private JButton btnEmp;
 
 	public ErpApplication() {
 		initComponents();
@@ -41,9 +44,16 @@ public class ErpApplication extends JFrame implements ActionListener {
 		btnDepartment = new JButton("부서관리");
 		btnDepartment.addActionListener(this);
 		contentPane.add(btnDepartment);
+		
+		btnEmp = new JButton("사원관리");
+		btnEmp.addActionListener(this);
+		contentPane.add(btnEmp);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnEmp) {
+			actionPerformedBtnEmp(e);
+		}
 		if (e.getSource() == btnDepartment) {
 			actionPerformedBtnDepartment(e);
 		}
@@ -59,6 +69,10 @@ public class ErpApplication extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtnDepartment(ActionEvent e) {
 		AbstractFrameUI<Department> frame = new DepartmentFrameUI("부서");
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtnEmp(ActionEvent e) {
+		AbstractFrameUI<Employee> frame = new EmployeeFrameUI("사원");
 		frame.setVisible(true);
 	}
 }

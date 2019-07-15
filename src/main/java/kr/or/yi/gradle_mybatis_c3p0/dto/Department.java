@@ -13,10 +13,10 @@ public class Department {
 		this.deptCode = deptNo;
 	}
 
-	public Department(int deptNo, String deptName, int floor) {
+	public Department(int deptNo, String deptName, int deptFloor) {
 		this.deptCode = deptNo;
 		this.deptName = deptName;
-		this.deptFloor = floor;
+		this.deptFloor = deptFloor;
 	}
 
 
