@@ -44,4 +44,17 @@
 		from employee e join department d on e.dno = d.dept_code
    		  join title t on e.title = t.title_code where eno = #{eNo};
 	</select>
+	
+	
+	<!-- 방법1 -->
+	<select id="getSalaryByDepartment" statementType="CALLABLE" parameterType="map" resultType="State"> 
+		{ call salary_total(#{deptno, mode=IN, jdbcType=INTEGER})} <!-- map의 키값을 가져와서 매개변수로 들어감 map.key-->
+	</select>
+	
+	<!-- 방법2 -->
+	<select id="getStateSalaryByDepartment" statementType="CALLABLE" parameterType="map" resultType="State">
+		{ call salary_total(#{deptno, mode=IN, jdbcType=INTEGER})}
+	</select>
+	
+	
 </mapper>
